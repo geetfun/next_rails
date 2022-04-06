@@ -78,12 +78,21 @@ deprecations --help # For more options and examples
 
 Right now, the path to the shitlist is hardcoded so make sure you store yours at `spec/support/deprecations.shitlist.json`.
 
+#### `next_rails` command
+
+You can use `next_rails` to fetch the version of the gem installed.
+
+```bash
+next_rails --version
+next_rails --help # For more options and examples
+```
+
 ### Dual-boot Rails next
 
 This command helps you dual-boot your application.
 
 ```bash
-next --init         # Create Gemfile.next
+next --init         # Create Gemfile.next and Gemfile.next.lock
 vim Gemfile         # Tweak your dependencies conditionally using `next?`
 next bundle install # Install new gems
 next rails s        # Start server using Gemfile.next
@@ -104,6 +113,17 @@ And then execute:
 Or install it yourself as:
 
     $ gem install next_rails
+
+## Setup
+
+Execute:
+
+    $ next --init
+
+Init will create a Gemfile.next and an initialized Gemfile.next.lock.
+The Gemfile.next.lock is initialized with the contents of your existing 
+Gemfile.lock lock file. We initialize the Gemfile.next.lock to prevent
+major version jumps when running the next version of Rails.
 
 ## License
 
